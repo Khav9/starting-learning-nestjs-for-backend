@@ -26,9 +26,10 @@ Make sure you have [pnpm](https://pnpm.io/) installed globally.
 
 ```bash
 pnpm install
+```
 
 🚀 Running the Project
-bash
+``` bash
 Copy
 Edit
 # Development
@@ -39,9 +40,9 @@ pnpm run start:dev
 
 # Production build
 pnpm run start:prod
-
+```
 ✅ Running Tests
-bash
+```bash
 Copy
 Edit
 # Unit tests
@@ -54,14 +55,12 @@ pnpm run test:e2e
 pnpm run test:cov
 Copy
 Edit
-
-
+```
 
 
 
 Git Essentials guide
 
-```markdown
 # 🧠 Git Essentials for Team Collaboration
 
 ## Branch Management
@@ -69,9 +68,7 @@ Git Essentials guide
 ### 1. Create New Branch
 Create a new branch to work on features/fixes without affecting main codebase.
 
-```bash
 git checkout -b feature/your-feature-name  # Create and switch to new branch
-```
 
 **Best Practice:**
 - Use descriptive branch names (e.g., `feature/user-auth`, `bugfix/login-error`)
