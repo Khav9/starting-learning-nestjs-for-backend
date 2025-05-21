@@ -1,36 +1,52 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  NotFoundException,
+  Param,
+  ParseIntPipe,
+  Post,
+  Query,
+  UsePipes,
+  ValidationPipe,
+} from '@nestjs/common';
 import { CreateUserDto } from '../dtos/CreateUser.dto';
+import { UsersService } from '../../services/users/users.service';
 
 @Controller('users')
 export class UsersController {
+  // service
+  constructor(private readonly usersService: UsersService) {}
+
+  // use get
   @Get()
   getUsers() {
-    return {
-      message: 'Users fetched successfully',
-      data: [
-        {
-          id: 1,
-          name: 'Khav Saroeun',
-          email: 'khavsaroeun@gmail.com',
-        },
-      ],
-    };
+    return this.usersService.fetchUsers();
   }
 
-  @Get(':id')
-  getUser(@Param('id') id: string) {
+  // use query
+  @Get('/me')
+  getUserQuery(@Query('sortby') sortby: string) {
     return {
       message: 'User fetched successfully',
-      data: { id: id },
+      data: { sortby: sortby },
     };
   }
 
+  // use param + validation pipe
+  @Get(':id')
+  getUser(@Param('id', ParseIntPipe) id: number) {
+    const user = this.usersService.fetchUserById(id);
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+    return user;
+  }
+
+  // use body + validation pipe
   @Post()
+  @UsePipes(new ValidationPipe())
   createUser(@Body() body: CreateUserDto) {
-    console.log(body);
-    return {
-      message: 'User created successfully!',
-      data: body,
-    };
+    return this.usersService.createUser(body);
   }
 }
