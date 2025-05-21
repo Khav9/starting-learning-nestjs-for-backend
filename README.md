@@ -25,24 +25,32 @@ The purpose of this project is to explore backend development using modern TypeS
 Make sure you have [pnpm](https://pnpm.io/) installed globally.
 
 ```bash
-$ pnpm install
+pnpm install
 
-## 🚀 Running the Project
-  # Development
-  $ pnpm run start
+🚀 Running the Project
+bash
+Copy
+Edit
+# Development
+pnpm run start
 
-  # Watch mode (auto-restart on changes)
-  $ pnpm run start:dev
+# Watch mode (auto-restart on changes)
+pnpm run start:dev
 
-  # Production build
-  $ pnpm run start:prod
+# Production build
+pnpm run start:prod
 
-## ✅ Running Tests
-  # Unit tests
-  $ pnpm run test
+✅ Running Tests
+bash
+Copy
+Edit
+# Unit tests
+pnpm run test
 
-  # End-to-end (e2e) tests
-  $ pnpm run test:e2e
+# End-to-end (e2e) tests
+pnpm run test:e2e
 
-  # Test coverage
-  $ pnpm run test:cov
+# Test coverage
+pnpm run test:cov
+Copy
+Edit
