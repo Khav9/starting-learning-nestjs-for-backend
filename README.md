@@ -58,9 +58,6 @@ Edit
 ```
 
 
-
-Git Essentials guide
-
 # 🧠 Git Essentials for Team Collaboration
 
 ## Branch Management
