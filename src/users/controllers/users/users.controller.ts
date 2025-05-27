@@ -7,11 +7,13 @@ import {
   ParseIntPipe,
   Post,
   Query,
+  UseGuards,
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
 import { CreateUserDto } from '../dtos/CreateUser.dto';
 import { UsersService } from '../../services/users/users.service';
+import { AuthGuard } from 'src/users/guards/auth/auth.guard';
 
 @Controller('users')
 export class UsersController {
@@ -20,6 +22,7 @@ export class UsersController {
 
   // use get
   @Get()
+  @UseGuards(AuthGuard)
   getUsers() {
     return this.usersService.fetchUsers();
   }
